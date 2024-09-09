@@ -1,4 +1,4 @@
-export version='1.16.1'
+export version='1.27.0'
 export nifi_registry_port='18080'
 export nifi_prd_port='8081'
 export nifi_stg_port='8082'
@@ -45,6 +45,10 @@ prop_replace baseUrl http://localhost:${nifi_stg_port} /opt/nifi-toolkit/nifi-en
 prop_replace baseUrl http://localhost:${nifi_dev_port} /opt/nifi-toolkit/nifi-envs/nifi-DEV
 prop_replace baseUrl http://localhost:${nifi_registry_port} /opt/nifi-toolkit/nifi-envs/registry-PRD
 
+
+#In Nifi tool kit cli to toggle env props
+#session set nifi.props /opt/nifi-toolkit/nifi-envs/nifi-STG
+#session set nifi.reg.props /opt/nifi-toolkit/nifi-envs/registry-PRD
 
 
 # Start NiFi Registry
@@ -104,6 +108,12 @@ echo " Start NiFi STG"
 echo " Start NiFi DEV"
 /opt/nifi-dev/bin/nifi.sh start
 
+#echo " Start NiFi PRD"
+#/opt/nifi-prd/bin/nifi.sh stop
+#echo " Start NiFi STG"
+#/opt/nifi-stg/bin/nifi.sh stop
+#echo " Start NiFi DEV"
+#/opt/nifi-dev/bin/nifi.sh stop
 
 
 
