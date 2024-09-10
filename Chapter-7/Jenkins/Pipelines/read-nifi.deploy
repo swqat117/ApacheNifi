@@ -8,8 +8,7 @@ pipeline {
     stage('Test NiFi chmod a'){
         steps {
             script {
-                sh('export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home')
-                 sh('/opt/nifi-toolkit/bin/cli.sh session set nifi.props /opt/nifi-toolkit/nifi-envs/nifi-${NIFI_ENV} && /opt/nifi-toolkit/bin/cli.sh nifi get-root-id')
+                 sh(' export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home && /opt/nifi-toolkit/bin/cli.sh session set nifi.props /opt/nifi-toolkit/nifi-envs/nifi-${NIFI_ENV} && /opt/nifi-toolkit/bin/cli.sh nifi get-root-id')
             }
         }
     }
