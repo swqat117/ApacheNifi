@@ -14,6 +14,7 @@ pipeline {
             steps('Step 1'){
                 script {
                     sh("""
+                    export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home &&
                     /opt/nifi-toolkit/bin/cli.sh session set nifi.reg.props /opt/nifi-toolkit/nifi-envs/registry-\${REGISTRY_ENV} && 
                     export BUCKET_IDENTIFIER=`/opt/nifi-toolkit/bin/cli.sh registry list-buckets | grep -w \${BUCKET_NAME} | awk '{print \$3}'` &&
                     echo \${BUCKET_IDENTIFIER} && 
