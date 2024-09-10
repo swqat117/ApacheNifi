@@ -5,10 +5,9 @@ pipeline {
       choice(name: 'NIFI_ENV', description: 'NIFI Enviroment', choices: 'DEV\nSTG\nPRD')
   }
   stages {
-    stage('Test NiFi chmod'){
+    stage('Test NiFi chmod a'){
         steps {
             script {
-                sh('chmod u+x ./scripts/*.sh')
                  sh('/opt/nifi-toolkit/bin/cli.sh session set nifi.props /opt/nifi-toolkit/nifi-envs/nifi-${NIFI_ENV} && /opt/nifi-toolkit/bin/cli.sh nifi get-root-id')
             }
         }
